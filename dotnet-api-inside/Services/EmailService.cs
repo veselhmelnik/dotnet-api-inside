@@ -22,6 +22,7 @@ namespace dotnet_api_inside.Services
 
         public int GetNumberOfEmails()
         {
+
             using (var client = new ImapClient())
             {
                 client.Connect(_server, _port, true);
