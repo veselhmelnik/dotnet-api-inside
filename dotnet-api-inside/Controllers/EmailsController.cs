@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using dotnet_api_inside.Services;
-using dotnet_api_inside.Data;
+﻿using dotnet_api_inside.Data;
 using dotnet_api_inside.Models;
+using dotnet_api_inside.Services;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,7 +30,7 @@ namespace dotnet_api_inside.Controllers
         [HttpPost]
         public async Task<ActionResult<Project>> Post()
         {
-            EmailService email = new();;
+            EmailService email = new(); ;
             Project project = email.GetProjectFromEmail();
             _db.Projects.Add(project);
             await _db.SaveChangesAsync();
