@@ -12,8 +12,8 @@ using dotnet_api_inside.Data;
 namespace dotnet_api_inside.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220501124522_InitCreate")]
-    partial class InitCreate
+    [Migration("20220509104248_FirstInit")]
+    partial class FirstInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
