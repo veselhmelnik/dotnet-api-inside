@@ -10,5 +10,6 @@ namespace dotnet_api_inside.Data
         {
         }
         public DbSet<Project> Projects { get; set; } = null!;
+        public DbSet<Operator> Operators { get; set; } = null!;
     }
 }

@@ -26,16 +26,19 @@ namespace dotnet_api_inside.Controllers
             return email.GetNumberOfEmails();
         }
 
-        // POST api/<EmailsController>
+        // GET api/<EmailsController>
         [HttpPost]
-        public async Task<ActionResult<Project>> Post()
+        public async Task<ActionResult<Project>> Add()
         {
-            EmailService email = new(); ;
+            EmailService email = new();
             Project project = email.GetProjectFromEmail();
-            _db.Projects.Add(project);
-            await _db.SaveChangesAsync();
-
-            return CreatedAtAction("Get", new { id = project.Id }, project);
+            if (project.Name != null && project.ProjectId != null)
+            {
+                _db.Projects.Add(project);
+                await _db.SaveChangesAsync();
+                return CreatedAtAction("Get", new { id = project.Id }, project);
+            }
+            else return Ok();
         }
 
         // PUT api/<EmailsController>/5
